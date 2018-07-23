@@ -1,0 +1,11 @@
+      <input type="text" pInputText placeholder="Username" id="username" name="username" [(ngModel)]="username" required>
+      <br>
+      <input type="text" pInputText placeholder="Name" id="name" name="name" required [(ngModel)]="name">
+      <br>
+      <input type="text" pInputText placeholder="Email" id="email" name="email" required [(ngModel)]="email">
+      <br>
+      <input type="text" pInputText placeholder="Documento" id="document" name="document" required [(ngModel)]="document">
+      <br>
+      <input type="text" pInputText placeholder="Fecha nacimiento" id="date" name="date" required [(ngModel)]="date">
+      <br>
+      <p-button label="Crear Usuario" (onClick)="newUser()"></p-button>
