@@ -6,6 +6,12 @@ import { User } from '../clases/User';
 @Injectable()
 export class UserService {
   url="http://localhost:8080/users";
+  httpOptions = {
+    headers: new HttpHeaders({ 
+      'Access-Control-Allow-Origin':'*',
+      'Content-Type':'application/json'
+    })
+  };
   constructor(public http: HttpClient) { }
 
   getUsers(): Observable<any> {
@@ -13,24 +19,16 @@ export class UserService {
   }
 
   addUser(user: User): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 
-        'Access-Control-Allow-Origin':'*',
-        'Content-Type':'application/json'
-      })
-    };
-    return this.http.post(this.url, JSON.stringify(user), httpOptions);
+    return this.http.post(this.url, JSON.stringify(user), this.httpOptions);
   }
 
-  // deleteUser(user: User): Observable<any> {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({ 
-  //       'Access-Control-Allow-Origin':'*',
-  //       'Content-Type':'application/json'
-  //     })
-  //   };
-  //   return this.http.delete();
-  // }
+  deleteUser(user): Observable<any> {
+    return this.http.request('delete',this.url,{body : user});
+  }
+
+  updateUser(user): Observable<any> {
+    return this.http.request('put',this.url,{body : user});
+  }
 
 
 }

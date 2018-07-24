@@ -14,6 +14,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
+import {DataTableModule, SharedModule} from 'primeng/primeng';
 //rutas
 import { APP_ROUTING } from './app.routes';
 
@@ -33,6 +34,8 @@ import { APP_ROUTING } from './app.routes';
     InputTextModule,
     ButtonModule,
     TableModule,
+    DataTableModule,
+    SharedModule,
     APP_ROUTING
   ],
   providers: [UserService],
